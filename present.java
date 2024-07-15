@@ -2,7 +2,8 @@ package Arrays;
 import java.util.Scanner;
 public class present {
 
-    // Qus: Given an Array of integers 'a' move all the even integers at the beginning of the Array followed by the all the odd integers. The relative order of odd or even integers does not matter. Return any Array that Satisfies the condition!!
+    // Qus: Given an Array of integers 'a' move all the even integers at the beginning of the Array followed by the all the
+    // odd integers. The relative order of odd or even integers does not matter. Return any Array that Satisfies the condition!!
 
 
     static void printArray(int[] arr){
