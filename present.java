@@ -2,9 +2,15 @@ package Arrays;
 import java.util.Scanner;
 public class present {
 
-    // Qus: Given an Array of integers 'a' move all the even integers at the beginning of the Array followed by the all the
-    // odd integers. The relative order of odd or even integers does not matter. Return any Array that Satisfies the condition!!
-
+    // Qus: Given an integer Array 'a' sorting in non-decreasing order,return an Array of squares of each number sorted in non-decreasing order!!
+        static void reverseArray(int[] arr){
+        int i = 0, j = arr.length-1;
+        while (i<j){
+            swapArray(arr,i,j);
+            i++;
+            j--;
+        }
+    }
 
     static void printArray(int[] arr){
         for(int i=0;i<arr.length;i++){
@@ -20,26 +26,28 @@ public class present {
 
     }
 
-    static void sortArrayByParity(int[] arr){
+    static int[] sortArraySquared(int[] arr){
         int n = arr.length;
         int left = 0;
         int right = n-1;
+        int k = 0;
+        int[] ans = new int[n];
 
-        while(left<right){
-            if(arr[left]%2==1 && arr[right]%2==0){
-                swapArray(arr,left,right);
-                left++;
-                right--;
-            }
-            if(arr[left]%2==0){
+        while(left<=right){
+            if(Math.abs(arr[left])>Math.abs(arr[right])){
+                ans[k++] = arr[left] * arr[left];
                 left++;
             }
-            if(arr[right]%2==1){
+            else{
+                ans[k++] = arr[right] * arr[right];
                 right--;
             }
         }
-
+        reverseArray(ans);
+        printArray(ans);
+        return ans;
     }
+
 
 
     public static void main(String[] args) {
@@ -55,12 +63,77 @@ public class present {
         }
         System.out.println("Original Array");
         printArray(arr);
-        sortArrayByParity(arr);
+        int[] ans = sortArraySquared(arr);
+       // sortArraySquared(arr);
         System.out.println("Sorted Array :");
-        printArray(arr);
+        printArray(ans);
 
     }
 }
+
+// Qus: Given an Array of integers 'a' move all the even integers at the beginning of the Array followed by the all the
+// odd integers. The relative order of odd or even integers does not matter. Return any Array that Satisfies the condition!!
+
+
+//static void printArray(int[] arr){
+//    for(int i=0;i<arr.length;i++){
+//        System.out.println(arr[i]+" ");
+//    }
+//    System.out.println();
+//}
+//
+//static void swapArray(int[] arr,int i,int j){
+//    int temp = arr[i];
+//    arr[i] = arr[j];
+//    arr[j] = temp;
+//
+//}
+//
+//static void sortArrayByParity(int[] arr){
+//    int n = arr.length;
+//    int left = 0;
+//    int right = n-1;
+//
+//    while(left<right){
+//        if(arr[left]%2==1 && arr[right]%2==0){
+//            swapArray(arr,left,right);
+//            left++;
+//            right--;
+//        }
+//        if(arr[left]%2==0){
+//            left++;
+//        }
+//        if(arr[right]%2==1){
+//            right--;
+//        }
+//    }
+//
+//}
+//
+//
+//public static void main(String[] args) {
+//    Scanner sc = new Scanner(System.in);
+//    System.out.println("Enter Array size :");
+//    int n = sc.nextInt();
+//    int[] arr = new int[n];
+//
+//    System.out.println("Enter "+n+" elements :");
+//    for(int i=0;i<arr.length;i++){
+//        arr[i] = sc.nextInt();
+//
+//    }
+//    System.out.println("Original Array");
+//    printArray(arr);
+//    sortArrayByParity(arr);
+//    System.out.println("Sorted Array :");
+//    printArray(arr);
+//
+//}
+//}
+
+
+
+
 
 
 // Qus: Solve the below question using two pointers!!
